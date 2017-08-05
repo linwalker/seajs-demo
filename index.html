@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>seajs example</title>
+</head>
+<body>
+<h1 id="title">seajs demo</h1>
+<script src="sea-module/sea.js"></script>
+<!--<script src="sea-module/jquery/jquery.js"></script>-->
+<!--<script src="sea-module/select2/select2.js"></script>-->
+<script>
+    seajs.config({
+        alias:{
+            'changeText':'../static/changeText.js',
+            'jquery':'jquery/jquery',
+            'main':'./static/main.js'
+        },
+
+    });
+    seajs.use(['main','jquery'],function(main,$) {
+        $('#title').after('<button id="show">showText</button>');
+        $('#show').on('click',function() {
+            main.showText()
+        })
+    });
+
+</script>
+</body>
+</html>
